@@ -1,0 +1,215 @@
+.cta-section {
+  display: flex;
+  height: 80vh;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+/* Left Black Half */
+.cta-left-bg {
+  flex: 0.75;
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+/* Right White Half */
+.cta-right-bg {
+  flex: 1.5;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 7rem;
+  padding: 1rem;
+}
+
+/* Centered Circle Card */
+.cta-circle-container {
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: #333333;
+  z-index: 2;
+}
+
+.cta-circle-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.cta-circle-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.cta-circle-text-small {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555555;
+  margin-bottom: 1rem;
+}
+
+.cta-email {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+/* Right Side Content */
+.cta-right-content {
+  width: 85%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.cta-tag {
+  background-color: #ffe8df;
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #333;
+}
+.cta-tag:hover {
+  background-color: #ffa76c;
+ 
+  color: #333;
+}
+
+.cta-right-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000000;
+  line-height: 1.4;
+}
+
+.cta-right-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 2rem;
+}
+
+/* CTA Button */
+.cta-button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #333333;
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  .cta-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .cta-left-bg,
+  .cta-right-bg {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    padding: 2rem 1rem;
+  }
+
+  .cta-circle-container {
+    position: static;
+    transform: none;
+    margin: 0 auto 2rem auto;
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+  }
+
+  .cta-circle-heading {
+    font-size: 1.5rem;
+  }
+
+  .cta-circle-text,
+  .cta-circle-text-small {
+    font-size: 0.9rem;
+  }
+
+  .cta-right-content {
+    width: 100%;
+    max-width: 90%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-tags {
+    justify-content: center;
+  }
+
+  .cta-right-heading {
+    font-size: 1.5rem;
+  }
+
+  .cta-right-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-circle-container {
+    width: 250px;
+    height: 250px;
+    padding: 4rem;
+  }
+
+  .cta-circle-heading {
+    font-size: 1.2rem;
+  }
+
+  .cta-right-heading {
+    font-size: 1.3rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+/* Animation Classes */

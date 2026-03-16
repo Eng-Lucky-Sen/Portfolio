@@ -1,0 +1,32 @@
+/* components/services/WebAppDesignDetail.css */
+
+.webapp-container {
+  padding: 2rem;
+  max-width: 768px;
+  margin: 0 auto;
+  color: #2d3748; /* gray-800 */
+}
+
+.webapp-heading {
+  font-size: 1.875rem; /* 30px */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.webapp-paragraph {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.webapp-subheading {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.webapp-list {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  line-height: 1.75;
+}

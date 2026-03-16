@@ -1,0 +1,388 @@
+.hero-section {
+  background-color: #ededed;
+  text-align: center;
+  padding: 5rem 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-container {
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+/* Keyframe animation for elements coming from the bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start 20px below its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its final position */
+  }
+}
+
+.hero-heading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  animation: fadeInUp 0.8s ease-out forwards; /* Apply animation */
+  animation-delay: 0.1s; /* Stagger the animation */
+}
+
+.hero-subheading {
+  font-size: 1.875rem;
+  margin-bottom: 0.25rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.PP {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-button {
+  background: #ffffff;
+  font-size: 0.875rem;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s; /* Adjust delay for each button if there are multiple */
+}
+
+.hero-button:hover {
+  background: rgb(255, 250, 250);
+}
+
+.hero-button div {
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-image-container {
+  background-color: #C2C2C2;
+  width: 270px;
+  height: 393px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  position: absolute; /* This is the property that causes overlap when not handled by a clear layout */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 10;
+  width: 270px;
+  height: 450px;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transform: translateY(10%);
+}
+
+.bio-left-column {
+  text-align: left;
+  width: 220px;
+  padding-left: .2rem;
+  padding-right: 4rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.bio-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.bio-desc {
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.bio-subtitle {
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.bio-services {
+  font-size: 0.875rem;
+  color: #4a5568;
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.bio-location {
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.bio-right-column {
+  text-align: right;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.stat-number {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.stat-label {
+  color: #718096;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.clients-section {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-logos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0.9;
+  filter: grayscale(1);
+  margin-top: 1rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.7s;
+}
+
+.clients-logos img {
+  height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-heading {
+    font-size: 2.25rem;
+  }
+
+  .hero-subheading {
+    font-size: 2.25rem;
+  }
+
+  .main-content-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "image image"
+      "bio stats";
+  }
+
+  .hero-image-wrapper {
+    grid-area: image;
+    margin-bottom: 0;
+  }
+
+  .bio-left-column {
+    grid-area: bio;
+    text-align: left;
+  }
+
+  .bio-right-column {
+    grid-area: stats;
+    text-align: right;
+  }
+
+  .stat-number {
+    justify-content: flex-end;
+  }
+
+  .clients-logos {
+    justify-content: flex-end;
+  }
+}
+
+
+
+/* ============================
+   Responsive Tweaks
+   ============================ */
+
+@media (max-width: 1024px) {
+  .hero-heading,
+  .hero-subheading {
+    font-size: 2rem;
+  }
+
+  .hero-image-container {
+    width: 230px;
+    height: 340px;
+  }
+
+  .hero-image {
+    width: 230px;
+    height: 390px;
+  }
+
+  .bio-left-column {
+    padding-right: 2rem;
+  }
+
+  .clients-logos {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-heading,
+  .hero-subheading {
+    font-size: 1.75rem;
+  }
+
+  .hero-button {
+    width: 75px;
+    height: 75px;
+    font-size: 0.8rem;
+  }
+
+  .hero-image-container {
+    width: 200px;
+    height: 310px;
+    /* FIX: Reset positioning for mobile to prevent overlap */
+    position: static; /* Important: Make it part of normal document flow */
+    margin-top: 2rem; /* Add space above the image to push it down */
+    margin-bottom: 0; /* Ensure no extra space below the container itself */
+  }
+
+  .hero-image {
+    width: 200px;
+    height: 350px;
+  }
+
+  .main-content-grid {
+    /* FIX: Adjust main content grid for better mobile stacking and centering */
+    display: flex; /* Change to flexbox for vertical stacking */
+    flex-direction: column; /* Stack items vertically */
+    gap: 2rem;
+    grid-template-areas: none; /* Remove grid areas as we're using flex for stacking */
+    align-items: center; /* ADDED: Centers children horizontally when flex-direction is column */
+  }
+
+  .hero-image-wrapper {
+    /* FIX: Reset positioning for wrapper and add bottom margin and centering */
+    position: static; /* Ensure wrapper is also static */
+    margin-bottom: 2rem; /* Add space below the image wrapper */
+    justify-content: center; /* ADDED: Centers the image horizontally within its wrapper */
+  }
+
+  .bio-left-column,
+  .bio-right-column {
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+    /* FIX: Ensure no top margin is pulling it up */
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .stat-number {
+    justify-content: center;
+  }
+
+  .clients-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .bio-title,
+  .bio-desc,
+  .stat-label {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+
+  .main-content-grid{
+    flex-direction: column;
+    align-items: center; /* ADDED: Centers children horizontally for very small screens too */
+  }
+
+  .hero-subheading {
+    font-size: 1.25rem;
+  }
+
+  .hero-button {
+    margin-top: 2rem;
+    width: 60px;
+    height: 60px;
+    font-size: 0.75rem;
+    padding: 2rem;
+  }
+
+  .hero-image-container {
+    width: 180px;
+    height: 280px;
+    /* FIX: Ensure these are also static for smaller mobile */
+    position: static;
+    margin-top: 1.5rem; /* Adjust space for smaller screens */
+  }
+
+  .hero-image {
+    width: 180px;
+    height: 320px;
+  }
+
+  .hero-image-wrapper {
+    /* FIX: Ensure wrapper is static and has margin for smaller mobile and is centered */
+    position: static;
+    margin-bottom: 1.5rem; /* Adjust space for smaller screens */
+    justify-content: center; /* ADDED: Centers the image horizontally within its wrapper for very small screens */
+  }
+
+  .clients-logos img {
+    height: 1.25rem;
+  }
+}

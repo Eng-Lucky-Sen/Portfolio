@@ -1,0 +1,164 @@
+.work-process-section {
+  background-color: #ffffff;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.work-process-heading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.work-process-intro-text {
+  font-size: 1rem;
+  color: #4a5568;
+  max-width: 48rem;
+  margin: 0 auto 3rem auto;
+}
+
+/* Grid Layout */
+.work-process-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  max-width: 64rem;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+  cursor: pointer;
+}
+
+/* Hide scrollbar cross-browser */
+.work-process-grid::-webkit-scrollbar {
+  display: none;
+}
+.work-process-grid {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.line {
+  width: 2.5rem;
+  height: 0.2rem;
+  background-color: #ff986c;
+  margin: 0 auto 1.5rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.work-process-step {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+
+  opacity: 0;
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.step-icon {
+  color: #ff986c;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffe8df;
+  border-radius: 50%;
+  padding: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.step-icon:hover {
+  color: #fff7f4;
+  background-color: #ff986c;
+  border: 1px solid #ffe9e1;
+}
+
+.step-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.step-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffcfa8;
+}
+
+.step-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.2rem;
+  color: #2d3748;
+}
+
+.step-description {
+  font-size: 12px;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .work-process-heading {
+    font-size: 1.75rem;
+  }
+
+  .work-process-intro-text {
+    font-size: 0.95rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .step-description {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-process-section {
+    padding: 2rem 1rem;
+  }
+
+  .work-process-heading {
+    font-size: 1.5rem;
+  }
+
+  .work-process-intro-text {
+    font-size: 0.9rem;
+  }
+
+  .work-process-step {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,149 @@
+/* Keyframe animation: slide up and fade in */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to section */
+.about-section {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  animation: slideUpFade 0.1s ease-out forwards;
+}
+
+/* Add slight delays for stagger effect */
+.about-title {
+  animation: slideUpFade 1s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.about-role{
+  font-size: 2rem;
+  top: 0;
+}
+
+.about-subtitle {
+  animation: slideUpFade 1s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   /* background-color: #C2C2C2;
+  width: 270px;
+  height: 393px; */
+  gap: 2.5rem;
+  animation: slideUpFade 1s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+/* About.css */
+
+/* ... (your existing CSS) ... */
+
+.about-info-grid ul {
+  list-style: none; /* Remove default bullet points */
+  padding-left: 0; /* Remove default padding from the ul */
+}
+
+.about-info-grid ul li {
+  position: relative; /* Needed for positioning the pseudo-element */
+  padding-left: 15px; /* Adjust as needed for space between arrow and text */
+  margin-bottom: 8px; /* Space between list items */
+}
+
+.about-info-grid ul li::before {
+  content: '>'; /* The arrow character */
+  position: absolute;
+  left: 0;
+  color: #ff986c; /* Or any color you prefer for the arrow */
+  font-weight: bold;
+}
+.about-image {
+  animation: slideUpFade 1s ease-out forwards;
+   background-color: #C2C2C2;
+  width: 270px;
+  height: 393px;
+  padding-top: .2rem;
+  object-fit: cover;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+.about-image img{
+  animation: slideUpFade 1s ease-out forwards;
+   background-color: #C2C2C2;
+  width: 270px;
+  height: 393px;
+  object-fit: cover;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+
+.about-content {
+  max-width: 800px;
+  text-align: left;
+  animation: slideUpFade 1s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+.about-info-grid{
+display: flex;
+flex-direction: row;
+}
+
+.line {
+  width: 2.5rem;
+  height: 0.2rem;
+  /* background-color: #959595; */
+  background-color: #ff986c;
+
+  margin: 0 auto 1.5rem; 
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+.about-role,
+.about-description,
+.about-info-grid,
+.about-paragraph {
+  animation: slideUpFade 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Set delay individually for better staggered effect */
+.about-role { animation-delay: 1.2s; }
+.about-description { animation-delay: 1.4s; }
+.about-info-grid { animation-delay: 1.6s; }
+.about-paragraph { animation-delay: 1.8s; }
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .about-content {
+    padding-left: 2rem;
+  }
+
+  .about-info-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .about-info-grid ul {
+    width: 48%;
+  }
+}

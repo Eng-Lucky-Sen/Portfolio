@@ -1,0 +1,144 @@
+.my-services-section {
+  background-color: #ffffff;
+  padding: 3rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+}
+/* Animate from bottom */
+.service-item {
+   opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 0.6s ease forwards;
+  animation-delay: var(--delay);
+ 
+}
+
+.service-item.animate-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.line {
+  width: 2.5rem;
+  height: 0.2rem;
+  /* background-color: #959595; */
+  background-color: #ff986c;
+
+  margin: 0 auto 1.5rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.my-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.animated-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease-out forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.my-services-heading {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.my-services-intro {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.my-services-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Default to 1 column on mobile */
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .my-services-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+  }
+}
+
+.service-item {
+  background-color: #f8f8f8; /* Light grey background for cards */
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content within the card */
+  text-align: center; /* Center text within the card */
+}
+
+.service-icon-container {
+  background-color: #eeeeee; /* Slightly darker grey for icon background */
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #ff814b; /* Icon color */
+}
+.service-icon-container:hover {
+  background-color: #ff814b; /* Slightly darker grey for icon background */
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff; /* Icon color */
+}
+
+.service-icon-container svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.service-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.read-more-link {
+  display: inline-block;
+  color: #007bff; /* Blue link color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}

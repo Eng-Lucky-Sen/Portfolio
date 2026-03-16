@@ -1,0 +1,187 @@
+/* General Body Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Light background for the page */
+}
+
+/* Main Container */
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+/* Top Section Styling */
+.top-section {
+  background-color: #ffa646;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(40px);
+  animation-name: slideUpFromBottom;
+  animation-duration: 0.8s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.thank-you-heading {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.check-mark-circle {
+  background-color: #28a745; /* Green checkmark background */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 5px solid #1bff1b; /* Bright green border */
+}
+
+@keyframes blinkGlowShrink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px #00ff00);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 15px #00ff00);
+  }
+}
+
+.check-mark {
+  color: white;
+  width: 60px;
+  height: 60px;
+  animation: blinkGlowShrink 1.5s infinite ease-in-out;
+}
+
+.back-home-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ffad3b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.download-text {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+
+/* Bottom Section Styling */
+.bottom-section {
+  background-color: #f1f1f1; /* Grey color from the image */
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 40px; /* Space between ebook and text */
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(40px);
+  animation-name: slideUpFromBottom;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.ebook-info {
+  text-align: center;
+}
+
+.ebook-cover {
+  width: 200px; /* Adjust as needed */
+  height: auto;
+  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.enjoy-reading {
+  color: #555; /* Darker grey for the text */
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Slide Up Animation Keyframes */
+@keyframes slideUpFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .thank-you-heading {
+    font-size: 2.5em;
+  }
+
+  .check-mark-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .check-mark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .download-text {
+    font-size: 1.2em;
+  }
+
+  .bottom-section {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+
+  .enjoy-reading {
+    font-size: 2em;
+    margin-top: 20px; /* Add some space when stacked */
+  }
+}
+
+@media (max-width: 480px) {
+  .thank-you-heading {
+    font-size: 2em;
+  }
+
+  .download-text {
+    font-size: 1em;
+  }
+
+  .ebook-cover {
+    width: 150px; /* Smaller ebook cover on very small screens */
+  }
+
+  .enjoy-reading {
+    font-size: 1.5em;
+  }
+}
