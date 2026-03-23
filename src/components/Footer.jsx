@@ -60,18 +60,35 @@ const Footer = () => {
 
                         {/* Social Media Icons */}
                         <div className="social-icons-container">
-                           
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/Eng-Lucky-Sen" target="_blank" rel="noopener noreferrer"  className="social-icon-link">
-                                <i className="fab fa-github"></i>
-                            </a>
-                            {/* Instagram Icon */}
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jugadu.coder/"  target="_blank" rel="noopener noreferrer" className="social-icon-link">
-                                <i className="fab fa-instagram"></i>
-                            </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/lucky-sen-1369272b1/"  target="_blank" rel="noopener noreferrer" className="social-icon-link">
-                                <i className="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+
+  <a 
+    href="https://github.com/Eng-Lucky-Sen"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-icon-link"
+  >
+    <i className="fab fa-github"></i>
+  </a>
+
+  <a 
+    href="https://www.instagram.com/jugadu.coder/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="social-icon-link"
+  >
+    <i className="fab fa-instagram"></i>
+  </a>
+
+<a 
+  href="https://www.linkedin.com/in/lucky-sen-1369272b1/"  
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="social-icon-link"
+>
+  <i className="fab fa-linkedin-in"></i>
+</a>
+
+</div>
 
                         {/* Design Credits */}
                         <p className="credits-text">
