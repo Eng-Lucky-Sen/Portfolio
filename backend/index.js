@@ -1,5 +1,4 @@
 
-
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
@@ -9,34 +8,49 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// ✅ Strong CORS (important for Vercel → Render)
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json());
 
+// ✅ Test route
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
-// POST: Contact Route
+
+// ✅ Contact Route
 app.post('/api/contact', async (req, res) => {
+  console.log("📥 Incoming request:", req.body); // DEBUG
+
   const { name, email, subject, message } = req.body;
 
+  // ✅ Validation
+  if (!name || !email || !subject || !message) {
+    return res.status(400).json({ message: "All fields required" });
+  }
+
   try {
-    // ✅ Create transporter (Gmail)
+    // ✅ Email transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_FROM,
-        pass: process.env.EMAIL_PASS, // App Password
+        pass: process.env.EMAIL_PASS,
       },
     });
 
-    // ✅ Email options (FIXED)
+    // ✅ Email options
     const mailOptions = {
-      from: process.env.EMAIL_FROM,   // MUST be your Gmail
+      from: process.env.EMAIL_FROM,
       to: process.env.EMAIL_TO,
-      replyTo: email,                // User email
+      replyTo: email,
       subject: `Contact Form: ${subject}`,
       html: `
+        <h3>📬 New Contact Message</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Subject:</strong> ${subject}</p>
@@ -44,13 +58,12 @@ app.post('/api/contact', async (req, res) => {
       `,
     };
 
-    // ✅ Send Email
     console.log("📩 Sending Email...");
     await transporter.sendMail(mailOptions);
     console.log("✅ Email sent");
 
-    // ✅ Telegram Notification
-const text = `
+    // ✅ Telegram message
+    const text = `
 <b>📬 New Contact Message</b>
 👤 Name: ${name}
 📧 Email: ${email}
@@ -68,19 +81,21 @@ const text = `
     });
     console.log("✅ Telegram sent");
 
+    // ✅ Success response
     res.status(200).json({
       message: "✅ Message sent successfully!"
     });
 
   } catch (err) {
-    console.error("❌ FULL ERROR:", err.response?.data || err.message || err);
+    console.error("❌ ERROR:", err.response?.data || err.message || err);
+
     res.status(500).json({
       message: "❌ Failed to send message"
     });
   }
 });
 
-// Server
+// ✅ Server start
 app.listen(PORT, () => {
   console.log(`🚀 Backend running on port ${PORT}`);
 });
