@@ -1,6 +1,6 @@
 // WorkProcess.jsx
 import React, { useEffect, useRef } from 'react';
-import './Workprocess.css';
+import './WorkProcess.css';
 
 const WorkProcess = () => {
   const sectionRef = useRef(null);
