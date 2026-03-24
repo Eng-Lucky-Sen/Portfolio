@@ -62,14 +62,14 @@ app.post("/api/contact", async (req, res) => {
       `,
     };
 
-    console.log("📩 Sending Email...");
-    try {
-      await transporter.sendMail(mailOptions);
-      console.log("Email sent");
-    } catch (err) {
-      console.error("Mail error:", err);
-    }
-    console.log("✅ Email sent");
+    // console.log("📩 Sending Email...");
+    // try {
+    //   await transporter.sendMail(mailOptions);
+    //   console.log("Email sent");
+    // } catch (err) {
+    //   console.error("Mail error:", err);
+    // }
+    // console.log("✅ Email sent");
 
     // ✅ Telegram message
     const text = `
