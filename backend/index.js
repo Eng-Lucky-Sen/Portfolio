@@ -1,19 +1,20 @@
-
-const express = require('express');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
-const axios = require('axios');
-require('dotenv').config();
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+const axios = require("axios");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ Strong CORS (important for Vercel → Render)
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type"]
-}));
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  }),
+);
 
 app.use(express.json());
 
@@ -26,7 +27,7 @@ app.get("/hello", (req, res) => {
 });
 
 // ✅ Contact Route
-app.post('/api/contact', async (req, res) => {
+app.post("/api/contact", async (req, res) => {
   console.log("📥 Incoming request:", req.body); // DEBUG
 
   const { name, email, subject, message } = req.body;
@@ -39,7 +40,7 @@ app.post('/api/contact', async (req, res) => {
   try {
     // ✅ Email transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: process.env.EMAIL_FROM,
         pass: process.env.EMAIL_PASS,
@@ -62,7 +63,12 @@ app.post('/api/contact', async (req, res) => {
     };
 
     console.log("📩 Sending Email...");
-    await transporter.sendMail(mailOptions);
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Email sent");
+    } catch (err) {
+      console.error("Mail error:", err);
+    }
     console.log("✅ Email sent");
 
     // ✅ Telegram message
@@ -80,20 +86,19 @@ app.post('/api/contact', async (req, res) => {
     await axios.post(telegramURL, {
       chat_id: process.env.TELEGRAM_CHAT_ID,
       text: text,
-      parse_mode: 'HTML'
+      parse_mode: "HTML",
     });
     console.log("✅ Telegram sent");
 
     // ✅ Success response
     res.status(200).json({
-      message: "✅ Message sent successfully!"
+      message: "✅ Message sent successfully!",
     });
-
   } catch (err) {
     console.error("❌ ERROR:", err.response?.data || err.message || err);
 
     res.status(500).json({
-      message: "❌ Failed to send message"
+      message: "❌ Failed to send message",
     });
   }
 });
