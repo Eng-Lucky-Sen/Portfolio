@@ -21,6 +21,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
+app.get("/hello", (req, res) => {
+  res.send("yehhh");
+});
 
 // ✅ Contact Route
 app.post('/api/contact', async (req, res) => {
