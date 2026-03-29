@@ -1,0 +1,62 @@
+/* Global */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eeeeee;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  gap: 25px;
+}
+
+/* Card */
+.card {
+  width: 300px;
+  padding: 30px;
+  background: #c1c1c1;
+  color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Show animation */
+.card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Left & Right spread */
+.card.left.show {
+  transform: translateX(-120px) rotate(-5deg);
+}
+
+.card.right.show {
+  transform: translateX(120px) rotate(5deg);
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.05) !important;
+  background: #222;
+}
+
+/* Page */
+.page {
+  color: white;
+  text-align: center;
+  margin-top: 80px;
+}
